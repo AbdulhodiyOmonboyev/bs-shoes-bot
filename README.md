@@ -116,10 +116,34 @@ Boshqaruv paneliga kirish maxfiy tarzda amalga oshiriladi:
 
 ---
 
-## 🚀 Ishga Tushirish:
-1. Windows-da `run.bat` faylini ikki marta bosing.
+## 🚀 Render.com da 1-Klik orqali Deploy qilish
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AbdulhodiyOmonboyev/bs-shoes-bot)
+
+### Renderda sozlash qadamlari:
+1. GitHub-da [https://github.com/new](https://github.com/new) sahifasiga kiring va `bs-shoes-bot` nomli repository yarating.
+2. Terminalda quyidagi buyruqni bering:
+   ```bash
+   git push -u origin main
+   ```
+3. [Render.com](https://render.com) saytiga kiring.
+4. **"New +"** -> **"Web Service"** tugmasini bosing va `bs-shoes-bot` reposini tanlang.
+5. Quyidagi parametrlarni tekshiring:
+   - **Name:** `bs-shoes-bot`
+   - **Runtime:** `Node`
+   - **Build Command:** `npm install`
+   - **Start Command:** `npm start`
+   - **Instance Type:** `Free`
+6. **Environment Variables** (Muhit o'zgaruvchilari) bo'limida qo'shing:
+   - `BOT_TOKEN`: `8803645082:AAHrga4_UtoVJDz3fQY_j6PmGjKS8MW791U`
+   - `NODE_ENV`: `production`
+7. **"Deploy Web Service"** tugmasini bosing! Bot 24/7 rejimda uzluksiz ishlaydi.
+
+---
+
+## 💻 Kompyuterda lokal ishga tushirish:
+1. Windows-da [`run.bat`](run.bat) faylini ikki marta bosing.
 2. Yoki terminalda:
    ```bash
-   cd bs-shoes-bot
-   node index.js
+   npm start
    ```
