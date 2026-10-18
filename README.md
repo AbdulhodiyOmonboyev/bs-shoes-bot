@@ -7,7 +7,10 @@ Ushbu bot poyabzal ishlab chiqarish sexlari va korxonalari uchun to'liq avtomatl
 ## 🤖 Bot Ma'lumotlari:
 - **Bot username:** [@for_my_dad1_bot](https://t.me/for_my_dad1_bot)
 - **Token:** `8803645082:AAHrga4_UtoVJDz3fQY_j6PmGjKS8MW791U`
-- **Texnologiyalar:** Node.js (v24), Telegraf (v4), Built-in SQLite (`node:sqlite`), ExcelJS
+- **Render Live URL:** [https://bs-shoes-bot.onrender.com](https://bs-shoes-bot.onrender.com)
+- **Render Dashboard:** [https://dashboard.render.com/web/srv-dba4imbrjlhs738soddg](https://dashboard.render.com/web/srv-dba4imbrjlhs738soddg)
+- **GitHub Repository:** [https://github.com/AbdulhodiyOmonboyev/bs-shoes-bot](https://github.com/AbdulhodiyOmonboyev/bs-shoes-bot)
+- **Texnologiyalar:** Node.js (v24), Telegraf (v4), Built-in SQLite (`node:sqlite`), ExcelJS, Unsleep Keep-Alive (90s)
 
 ---
 
