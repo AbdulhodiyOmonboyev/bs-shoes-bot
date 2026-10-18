@@ -899,7 +899,8 @@ function registerAdminHandlers(bot) {
         Markup.button.callback('🔐 Parolni o\'zgartirish', 'admin_change_pwd')
       ],
       [
-        Markup.button.callback('👥 Adminlar ro\'yxati', 'admin_list_admins')
+        Markup.button.callback('👥 Adminlar ro\'yxati', 'admin_list_admins'),
+        Markup.button.callback('⚡️ Unsleep holati', 'admin_view_unsleep')
       ]
     ];
 
@@ -907,6 +908,25 @@ function registerAdminHandlers(bot) {
       parse_mode: 'HTML',
       reply_markup: { inline_keyboard: buttons }
     });
+  });
+
+  // Action: View Unsleep status
+  bot.action('admin_view_unsleep', async (ctx) => {
+    if (!checkAdmin(ctx)) return;
+    await ctx.answerCbQuery();
+    const { getUnsleepStats } = require('../server');
+    const stats = getUnsleepStats();
+    const uptime = formatDuration(Math.floor(process.uptime() / 60));
+    let text = `⚡️ <b>Unsleep (Anti-Sleep) Holati:</b>\n\n`;
+    text += `🟢 <b>Holati:</b> Faol (Render uxlab qolmasligi uchun)\n`;
+    text += `⏱ <b>Uyg'otish oralig'i:</b> Har <b>${stats.intervalSeconds} soniyada (1.5 minut)</b>\n`;
+    text += `🌐 <b>Server URL:</b> <code>${stats.externalUrl || 'Aniqlanmoqda'}</code>\n`;
+    text += `📊 <b>Jami yuborilgan so'rovlar:</b> ${stats.totalPings} ta\n`;
+    text += `✅ <b>Muvaffaqiyatli uyg'otishlar:</b> ${stats.successfulPings} ta\n`;
+    text += `🕒 <b>So'nggi so'rov vaqti:</b> ${stats.lastPingAt || '-'}\n`;
+    text += `⏳ <b>Bot ish vaqti (uptime):</b> ${uptime}\n\n`;
+    text += `<i>Ushbu funksiya Render bepul tarifida bot har 3 minutda o'chib qolishining oldini oladi va 24/7 uzluksiz ishlashini ta'minlaydi!</i>`;
+    return ctx.reply(text, { parse_mode: 'HTML' });
   });
 
   // Action: Set work times

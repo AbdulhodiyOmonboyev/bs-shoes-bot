@@ -36,6 +36,24 @@ function registerAuthHandlers(bot) {
     return ctx.reply('Sessiya yakunlandi.', { reply_markup: { remove_keyboard: true } });
   });
 
+  // /unsleep command
+  bot.command('unsleep', async (ctx) => {
+    const { getUnsleepStats } = require('../server');
+    const { formatDuration } = require('../utils/helpers');
+    const stats = getUnsleepStats();
+    const uptime = formatDuration(Math.floor(process.uptime() / 60));
+    let text = `⚡️ <b>Unsleep (Anti-Sleep) Holati:</b>\n\n`;
+    text += `🟢 <b>Holati:</b> FAOL (Doimiy uyg'oq)\n`;
+    text += `⏱ <b>Interval:</b> Har <b>${stats.intervalSeconds} soniyada (1.5 minut)</b>\n`;
+    text += `🌐 <b>Server URL:</b> <code>${stats.externalUrl || 'Aniqlanmoqda'}</code>\n`;
+    text += `📊 <b>Jami yuborilgan so'rovlar:</b> ${stats.totalPings} ta\n`;
+    text += `✅ <b>Muvaffaqiyatli uyg'otishlar:</b> ${stats.successfulPings} ta\n`;
+    text += `🕒 <b>So'nggi so'rov vaqti:</b> ${stats.lastPingAt || '-'}\n`;
+    text += `⏳ <b>Bot ish vaqti:</b> ${uptime}\n\n`;
+    text += `<i>Render serveringiz har 90 soniyada avtomatik so'rovlar bilan uyg'otib turiladi va hech qachon o'chib qolmaydi!</i>`;
+    return ctx.reply(text, { parse_mode: 'HTML' });
+  });
+
   // /start command
   bot.command('start', async (ctx) => {
     clearSession(ctx.from.id);
