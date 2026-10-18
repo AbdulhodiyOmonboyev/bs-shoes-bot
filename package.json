@@ -1,0 +1,23 @@
+{
+  "name": "bs-shoes-bot",
+  "version": "1.0.0",
+  "description": "BS-SHOES Ishlab chiqarish sex boshqaruv telegram boti",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "telegram-bot",
+    "production",
+    "management",
+    "telegraf"
+  ],
+  "author": "BS-SHOES",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "telegraf": "^4.16.3"
+  }
+}
